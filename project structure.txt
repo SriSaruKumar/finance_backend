@@ -1,0 +1,44 @@
+finance_app/
+│── app/
+│   │── main.py
+│   │── __init__.py
+│   │
+│   ├── api/                    # FastAPI route-related logic
+│   │   ├── __init__.py
+│   │   ├── deps.py             # Dependencies (auth, token verification)
+│   │   ├── routes_auth.py
+│   │   └── routes_user.py
+│   │
+│   ├── core/                   # Core configuration and initialization
+│   │   ├── __init__.py
+│   │   ├── config.py           # App settings & environment variables
+│   │   └── firebase.py         # Firebase admin SDK initialization
+│   │
+│   ├── routers/                # App routers for features
+│   │   ├── __init__.py
+│   │   ├── auth.py             # Optional, can merge with routes_auth.py
+│   │   ├── transactions.py
+│   │   ├── budgets.py
+│   │   ├── analysis.py
+│   │   └── export.py
+│   │
+│   ├── services/               # Business logic / interaction with Firestore
+│   │   ├── __init__.py
+│   │   ├── firestore_service.py
+│   │   ├── auth_service.py
+│   │   ├── analysis_service.py
+│   │   └── export_service.py
+│   │
+│   ├── models/                 # Pydantic models
+│   │   ├── __init__.py
+│   │   ├── transaction.py
+│   │   └── budget.py
+│   │
+│   └── utils/                  # Helpers for PDF, CSV, etc.
+│       ├── __init__.py
+│       ├── pdf_generator.py
+│       └── csv_generator.py
+│
+├── requirements.txt
+├── .env.example
+└── README.md
