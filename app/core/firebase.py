@@ -1,8 +1,11 @@
+import os
+import json
+import base64
 import firebase_admin
 from firebase_admin import credentials
-from app.core.config import settings
 
-# Prevent reinitialization if already initialized
-if not firebase_admin._apps:
-    cred = credentials.Certificate(settings.FIREBASE_CREDENTIALS)
-    firebase_admin.initialize_app(cred)
+# Decode the environment variable
+service_account_info = json.loads(base64.b64decode(os.environ["FIREBASE_SERVICE_ACCOUNT"]))
+
+cred = credentials.Certificate(service_account_info)
+firebase_admin.initialize_app(cred)
